@@ -1,6 +1,60 @@
 # AWK basics
 
-## print header info
+
+## Subsetting tables
+
+### Print lines that have specific pattern.
+
+```{bash}
+#just print rows if they contain the word hello in the 5th column
+awk  '$5 == "hello"' Input
+
+#look for a pattern and define what we want to print
+awk '/hello/ {print $1}' Input
+awk '$5 == "hello" {print $1}' Input
+
+#we can also search for more than one pattern
+awk '$1 ~ /John|Eric/ {print $0}' Input
+
+#print everything, except rows with John and Eric
+awk '!/John|Eric/ {print $1,$3}' Input
+awk '$1 !~ /John|Eric/ {print $1,$3}' Input
+```
+
+### Split tables by categories
+
+Imagine we have a table listing people from different states, the states are listed in column 3. With awk we can easily split this one table, into multiple tables, one each per state
+
+```{bash eval=FALSE}
+#print all columns, one table/state
+awk '{print > $3".txt"}'  Input
+
+#print only the first column, one table/state
+awk '{print $1 > $3".txt"}'  Input
+```
+
+This command will generate several new text files in our working directory.
+
+## Splitting columns
+
+We can also split columns. 
+For example, we could have something like this in the first column: BinID-accession.
+Now we want to split this in two columns, one for the binID , the second should contain the accession.
+
+Some new syntax for AWK:
+
+- **split()** =  the function 'split' divides a string into pieces
+- **$1** =  The column we want to split
+- **"x"** =  The pattern we want to use for splitting
+- **a** =  We name the ARRAY we generate 'a'. An ARRAY is similar to a variable you just can store more information in the array we store the different pieces that were split
+- **a[1]** =  retrieve the first part of the split array =E
+- **a[2]** =  retrieve the second part of the split array =1
+
+```{bash}
+awk 'BEGIN{FS=OFS="\t"}{split($1,a,"-")} {print $1,a[1],a[2]}' Input
+```
+
+## print the header of a table
 
 ```{bash eval=FALSE}
 awk -F'\t' '{for (i = 1; i <= NF; ++i) print i, $i; exit }' temp1
