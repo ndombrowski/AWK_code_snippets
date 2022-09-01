@@ -1,0 +1,16 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "AWK cookbook",
+    "section": "",
+    "text": "This is a cook book for key AWK commands."
+  },
+  {
+    "objectID": "1_Basics.html",
+    "href": "1_Basics.html",
+    "title": "1  AWK basics",
+    "section": "",
+    "text": "awk -F'\\t' '{for (i = 1; i <= NF; ++i) print i, $i; exit }' temp1"
+  }
+]

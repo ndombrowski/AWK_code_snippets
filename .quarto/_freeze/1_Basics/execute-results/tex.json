@@ -1,0 +1,20 @@
+{
+  "hash": "736865fe71a66a0e64049d8fa2f7afed",
+  "result": {
+    "markdown": "# AWK basics\n\n## print header info\n\n\n::: {.cell}\n\n```{.bash .cell-code}\nawk -F'\\t' '{for (i = 1; i <= NF; ++i) print i, $i; exit }' temp1\n```\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\n#lets print sth as an example using the print() function#here the argument we give is what we want to print\nprint(a)\n\n#print a character --> for this we need to add brackets (' or \") around our character\nprint(\"hello world\")\n\n```\n:::\n",
+    "supporting": [
+      "1_Basics_files/figure-pdf"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {
+      "knitr": [
+        "{\"type\":\"list\",\"attributes\":{},\"value\":[]}"
+      ]
+    },
+    "preserve": null,
+    "postProcess": false
+  }
+}

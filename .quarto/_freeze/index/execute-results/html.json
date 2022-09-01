@@ -1,0 +1,14 @@
+{
+  "hash": "285938e59913cb154e1cc594edb63628",
+  "result": {
+    "markdown": "# Preface {.unnumbered}\n\nThis is a cook book for key AWK commands.\n\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

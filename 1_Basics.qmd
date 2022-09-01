@@ -1,0 +1,8 @@
+# AWK basics
+
+## print header info
+
+```{bash eval=FALSE}
+awk -F'\t' '{for (i = 1; i <= NF; ++i) print i, $i; exit }' temp1
+```
+
