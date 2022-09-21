@@ -1,0 +1,7 @@
+# Math with AWK
+
+## Summarizing a column
+
+```{bash}
+awk -F'\t' -v OFS='\t' '{sum+=$2} END {print sum}'  File.txt
+```

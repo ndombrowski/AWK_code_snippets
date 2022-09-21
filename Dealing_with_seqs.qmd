@@ -1,0 +1,14 @@
+# Dealing with Sequence Data
+
+## Counting the number of sequences/file
+
+```{bash}
+awk -v OFS='\t' '/>/ {count++} END{print FILENAME, count}' Input.faa
+```
+
+
+### Adding the filename into the fasta header
+
+```{bash}
+for i in *fna; do awk '/>/{sub(">","&"FILENAME"-");sub(/\.fna/,x)}1' $i > renamed/$i; done
+```

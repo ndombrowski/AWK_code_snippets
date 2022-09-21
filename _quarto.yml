@@ -11,6 +11,8 @@ book:
   chapters:
     - index.qmd
     - 1_Basics.qmd
+    - Math.qmd
+    - Dealing_with_seqs.qmd
 
 bibliography: references.bib
 
