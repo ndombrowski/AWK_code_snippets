@@ -1,0 +1,4 @@
+- source: project
+  quarto-pub:
+    - id: b67aa566-f831-44fc-b085-adbbee99105c
+      url: 'https://quartopub.com/sites/nina-dombrowski/awk-cookbook'
