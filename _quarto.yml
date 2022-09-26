@@ -6,13 +6,12 @@ project:
 book:
   title: "AWK cookbook"
   author: "Nina Dombrowski"
-  date: "`r Sys.Date()`"
   logo: images/tree_of_life.png
   chapters:
     - index.qmd
-    - 1_Basics.qmd
-    - Math.qmd
-    - Dealing_with_seqs.qmd
+    - code/1_Basics.qmd
+    - code/Math.qmd
+    - code/Dealing_with_seqs.qmd
 
 bibliography: references.bib
 
@@ -26,18 +25,18 @@ format:
       - top=4mm
       - left=4mm
     #  - textwidth=4.5in
-      - heightrounded      
+      - heightrounded
     fontfamily: libertinus
     highlight-style: github
     pandoc_args: --listings
     includes:
       in_header: preamble.tex
     colorlinks: true
-    #code-block-bg: 7FB3D5 
-    
+    #code-block-bg: 7FB3D5
+
 execute:
   eval: false
 
 knitr:
-  opts_chunk: 
+  opts_chunk:
     collapse: true

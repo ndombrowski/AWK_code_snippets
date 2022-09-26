@@ -13,5 +13,14 @@
   },
   "Math.qmd": {
     "Math.html": "95b54e6f"
+  },
+  "code/1_Basics.qmd": {
+    "1_Basics.html": "a41caf5f"
+  },
+  "code/Math.qmd": {
+    "Math.html": "6f91a152"
+  },
+  "code/Dealing_with_seqs.qmd": {
+    "Dealing_with_seqs.html": "9274852a"
   }
 }
