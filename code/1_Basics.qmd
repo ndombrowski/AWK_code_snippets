@@ -28,6 +28,7 @@ Example: replace the first column name to accession
 awk 'BEGIN{FS="\t";FS="\t"; OFS="\t"}{if(NR==1) $1="accession"} {print $0 }' input > input_new
 ```
 
+
 ## Subsetting tables
 
 ### Print lines that have specific pattern.
@@ -48,6 +49,7 @@ awk '!/John|Eric/ {print $1,$3}' Input
 awk '$1 !~ /John|Eric/ {print $1,$3}' Input
 ```
 
+
 ### Split tables by categories
 
 Imagine we have a table listing people from different states, the states are listed in column 3. With awk we can easily split this one table, into multiple tables, one each per state
@@ -61,6 +63,7 @@ awk '{print $1 > $3".txt"}'  Input
 ```
 
 This command will generate several new text files in our working directory.
+
 
 ## Splitting columns
 
@@ -85,5 +88,16 @@ awk 'BEGIN{FS=OFS="\t"}{split($1,a,"-")} {print $1,a[1],a[2]}' Input
 
 ```{bash eval=FALSE}
 awk -F'\t' '{for (i = 1; i <= NF; ++i) print i, $i; exit }' temp1
+```
+
+
+## Extracting Patterns
+
+### Extract more than one pattern and make a two column table
+
+Notice, we use the substr option to only extract the pattern, not the line.
+
+```{bash}
+for i in `ls EP*/run_*/short_summary.txt`; do awk 'match($0,/EP[0-9]{5}|C\:[0-9]*\.[0-9]*%/) {print substr($0,RSTART,RLENGTH)}' ${i} | pr -2 -t | awk -v OFS='\t' '$1=$1' | sed 's/C://g;s/%//g' ; done > Euk_qual_scores.txt
 ```
 

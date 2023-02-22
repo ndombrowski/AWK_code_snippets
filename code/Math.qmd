@@ -5,3 +5,19 @@
 ```{bash}
 awk -F'\t' -v OFS='\t' '{sum+=$2} END {print sum}'  File.txt
 ```
+
+
+## Min, max, average
+
+For a list of COGs, calculate the number of sequences in each fasta file and give the min/max/mean
+
+```{bash}
+for i in `cat FileLists/ALEml_segmentation_COGs.txt`; do grep -c ">"  Alignment/v3/bmge/${i}*faa ; done |  awk '{if(min==""){min=max=$1}; if($1>max) {max=$1}; if($1<min) {min=$1}; total+=$1; count+=1} END {print "avg " total/count," | max "max," | min " min}'
+```
+
+We can do something similar looking at the aln length:
+
+```{bash}
+for i in `cat FileLists/ALEml_segmentation_COGs.txt`; do perl  ~/Scripts/length+GC.pl Alignment/v3/bmge/${i}*faa | awk -F '\t' '{print $3}' | sed -n '1p' ; done |  awk '{if(min==""){min=max=$1}; if($1>max) {max=$1}; if($1<min) {min=$1}; total+=$1; count+=1} END {print "avg " total/count," | max "max," | min " min}'
+```
+
